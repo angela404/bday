@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>La notificación del amor</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffd7e9, #ffeef5);
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+    .card, .cat-card {
+      width: 360px;
+      background: rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 25px;
+      padding: 25px;
+      box-shadow: 0 8px 32px rgba(255, 192, 203, 0.25);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      text-align: center;
+      position: absolute;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .visible {
+      opacity: 1;
+      transform: scale(1);
+      z-index: 2;
+    }
+    .header-bar {
+      width: 100%;
+      height: 28px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 12px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 0 10px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      backdrop-filter: blur(5px);
+    }
+    .header-bar span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #ff9ac1;
+      margin-right: 6px;
+    }
+    h2 {
+      color: #e25587;
+      font-size: 20px;
+      margin-top: 10px;
+      margin-bottom: 15px;
+      letter-spacing: 0.5px;
+    }
+    p {
+      font-size: 14px;
+      color: #4a4a4a;
+      line-height: 1.6;
+      margin-top: 10px;
+    }
+    .highlight {
+      color: #ff82ac;
+      font-weight: 600;
+    }
+    .ok-button, .buttons button {
+      margin-top: 20px;
+      padding: 8px 25px;
+      background: rgba(255, 255, 255, 0.35);
+      border: 2px solid #ffb1c1;
+      border-radius: 15px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+    }
+    .ok-button:hover, .buttons button:hover {
+      background: rgba(255, 255, 255, 0.5);
+      transform: scale(1.05);
+    }
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 15px;
+    }
+    img {
+      width: 120px;
+      margin: 15px 0;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3);
+    }
+    .footer {
+      font-size: 12px;
+      margin-top: 15px;
+      color: #c68ea4;
+    }
+    .heart-line {
+      font-size: 20px;
+      color: #ff9ac1;
+      margin: 15px 0;
+      animation: pulse 1.2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+    }
+
+    #reminderCard h2,
+    #reminderCard p {
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <div class="cat-card visible" id="catCard">
+    <div class="header-bar">
+      <span></span><span></span><span></span>
+    </div>
+    <h2>HOLA AMORCITO</h2>
+    <img src="https://acortar.link/Vyc3PX" alt="Cute Cat">
+    <p>No <span class="highlight">OLVIDES</span> que te amo mucho ¿ok?</p>
+    <button class="ok-button" onclick="showReminder()">OK</button>
+    <div class="footer">( Made with Myeya )</div>
+  </div>
+
+  <div class="card" id="reminderCard">
+    <div class="header-bar">
+      <span></span><span></span><span></span>
+    </div>
+    <h2>También recuerda que...</h2>
+    <p>
+      Desde que llegaste a mi vida, todo cambió. No fue solo una emoción pasajera, fue esa 
+      sensación profunda de que alguien por fin me entendía, me acompañaba y me hacía sentir
+      en casa. Estás en cada pensamiento, en cada sonrisa mía, incluso en los silencios que
+      compartimos. Eres esa paz que no sabía que necesitaba. Contigo aprendí que amar no
+      siempre es perfecto, pero sí real. Aprendí que estar juntos significa apoyarnos incluso 
+      en los días grises, reírnos cuando todo parece complicado y celebrar cada momento, por
+      pequeño que sea. Eres mi alegría, mi refugio, mi todo.
+    </p>
+    <p>
+      Gracias por existir, por quedarte, por ser tú.
+      Esta carta es solo un pequeño intento de poner en palabras 
+      algo que no cabe en ningún papel: lo que siento por ti.
+    </p>
+    <div class="heart-line">❤</div>
+    <div class="buttons">
+      <button onclick="showCat()">Regresar</button>
+    </div>
+    <div class="footer">( Made with Myeya )</div>
+  </div>
+
+  <script>
+    function showReminder() {
+      document.getElementById("catCard").classList.remove("visible");
+      document.getElementById("reminderCard").classList.add("visible");
+    }
+    function showCat() {
+      document.getElementById("reminderCard").classList.remove("visible");
+      document.getElementById("catCard").classList.add("visible");
+    }
+  </script>
+</body>
+</html>
